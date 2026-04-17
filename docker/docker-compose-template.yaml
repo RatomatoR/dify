@@ -1172,7 +1172,7 @@ services:
       - api
       - web
     ports:
-      - "8118:80"
+      - "8080:80"
 
   # The Weaviate vector store.
   weaviate:
