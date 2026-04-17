@@ -1,9 +1,10 @@
 services:
-  nginx:
-    profiles: ["disabled"]
 
-  certbot:
-    profiles: ["disabled"]
+  nginx:
+    networks:
+      - default
+      - dokploy-network
+    ports: []   # отключаем 8080:80
 
   api:
     networks:
@@ -16,5 +17,6 @@ services:
       - dokploy-network
 
 networks:
+
   dokploy-network:
     external: true
