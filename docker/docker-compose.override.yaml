@@ -1,37 +1,8 @@
 services:
   nginx:
-
     networks:
       - default
       - dokploy-network
-
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=dokploy-network
-
-      # Main UI
-      - traefik.http.routers.dify.rule=Host(`${DIFY_DOMAIN}`)
-      - traefik.http.routers.dify.entrypoints=websecure
-      - traefik.http.routers.dify.tls=true
-      - traefik.http.services.dify.loadbalancer.server.port=80
-
-      # Console
-      - traefik.http.routers.dify-console.rule=Host(`${DIFY_CONSOLE_DOMAIN}`)
-      - traefik.http.routers.dify-console.entrypoints=websecure
-      - traefik.http.routers.dify-console.tls=true
-      - traefik.http.services.dify-console.loadbalancer.server.port=80
-
-      # API
-      - traefik.http.routers.dify-api.rule=Host(`${DIFY_API_DOMAIN}`)
-      - traefik.http.routers.dify-api.entrypoints=websecure
-      - traefik.http.routers.dify-api.tls=true
-      - traefik.http.services.dify-api.loadbalancer.server.port=80
-
-      # Files
-      - traefik.http.routers.dify-files.rule=Host(`${DIFY_FILES_DOMAIN}`)
-      - traefik.http.routers.dify-files.entrypoints=websecure
-      - traefik.http.routers.dify-files.tls=true
-      - traefik.http.services.dify-files.loadbalancer.server.port=80
 
 networks:
   dokploy-network:
