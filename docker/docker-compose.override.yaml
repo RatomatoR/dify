@@ -1,5 +1,16 @@
 services:
   nginx:
+    profiles: ["disabled"]
+
+  certbot:
+    profiles: ["disabled"]
+
+  api:
+    networks:
+      - default
+      - dokploy-network
+
+  web:
     networks:
       - default
       - dokploy-network
